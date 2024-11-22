@@ -1,6 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { Button, TextInput } from 'react-native-web';
+import TaskCard from './TaskCard';
+
 
 export default function App() {
   return (
@@ -10,14 +12,24 @@ export default function App() {
         style={styles.input}
         placeholder='Nome da Tarefa' />
       <Text style={styles.label}> Tarefa Descrição</Text>
-      <TextInput style={[styles.input, styles.textArea]}
+      <TextInput 
+        style={[styles.input, styles.textArea]}
         placeholder='Descrição da tarefa'
         multiline  />
       <View style={styles.buttonContainer}>
-        <Button title='Salvar'
+        <Button 
+          title='Salvar'
           style={styles.buttonColor}
           color='#191970'/>
       </View>
+
+      <TaskCard 
+        title={"Teste"}
+        desc={"Descrição Teste"}
+        status={"Done"}
+        onClick={()=>{
+          alert("Deletar")
+        }} />
 
     </View>
   );
@@ -26,25 +38,25 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#A9A9A9',
-    alignItems: 'center',
-    justifyContent: 'center',
+    padding: 16,
+    backgroundColor: '#FFF8DC',
+    
   },
   label: {
-    fontSize: 35,
+    fontSize: 15,
     fontWeight: 'bold',
-    marginBottom: 8,
+    marginBottom: 5,
     color: '#191970',
   },
   input: {
-    borderWidth: 1,
-    borderColor: '#ccc',
+    borderWidth: 4,
+    borderColor: '#808080',
     borderRadius: 8,
-    padding: 12,
-    fontSize: 18,
-    marginBottom: 16,
-    color: '#2F4F4F',
-    textAlign: 'center',
+    padding: 16,
+    fontSize: 13,
+    marginBottom: 20,
+    color: '#483D8B',
+    textAlign: 'justify',  
   },
   textArea: {
     height: 100,
@@ -58,3 +70,5 @@ const styles = StyleSheet.create({
   },
 
 });
+
+
